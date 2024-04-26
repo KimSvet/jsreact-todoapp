@@ -1,4 +1,5 @@
-function Task({ task: { status, description } }) {
+import { formatDistanceToNow } from "date-fns";
+function Task({ task: { status, description, date } }) {
   return (
     <li className={status}>
       <div className="view">
@@ -6,7 +7,9 @@ function Task({ task: { status, description } }) {
         <label>
           <span className="description">{description}</span>
           <br />
-          {/* <span className="created">created n seconds ago</span> */}
+          <span className="created">
+            created {formatDistanceToNow(date)} ago
+          </span>
         </label>
         <button className="icon icon-edit"></button>
         <button className="icon icon-destroy"></button>
