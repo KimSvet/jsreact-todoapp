@@ -1,17 +1,11 @@
 import Task from "./Task";
 
-export default function TaskList() {
+export default function TaskList({ tasks }) {
   return (
     <ul className="todo-list">
-      <li>
-        <Task />
-      </li>
-      <li>
-        <Task />
-      </li>
-      <li>
-        <Task />
-      </li>
+      <Task task={tasks[0]} />
+      <Task task={tasks[1]} />
+      <Task task={tasks[2]} />
     </ul>
   );
 }

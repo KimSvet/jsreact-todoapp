@@ -2,18 +2,12 @@ import TasksFilter from "./TasksFilter";
 
 function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <span className="todo-count">1 items left</span>
       <ul className="filters">
-        <li>
-          <TasksFilter />
-        </li>
-        <li>
-          <TasksFilter />
-        </li>
-        <li>
-          <TasksFilter />
-        </li>
+        <TasksFilter name="All" selected={true} />
+        <TasksFilter name="Active" selected={false} />
+        <TasksFilter name="Completed" selected={false} />
       </ul>
       <button className="clear-completed">Clear completed</button>
     </footer>
