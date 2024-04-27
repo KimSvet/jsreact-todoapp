@@ -1,4 +1,6 @@
 import { formatDistanceToNow } from "date-fns";
+import "./Task.css";
+
 function Task({ task: { status, description, date } }) {
   return (
     <li className={status}>

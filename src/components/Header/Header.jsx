@@ -1,4 +1,5 @@
-import NewTaskForm from "./NewTaskForm";
+import NewTaskForm from "../NewTaskForm/NewTaskForm";
+import "./Header.css";
 
 function Header() {
   return (

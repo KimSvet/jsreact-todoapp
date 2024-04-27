@@ -1,7 +1,7 @@
 import "./App.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import TaskList from "./components/TaskList";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import TaskList from "./components/TaskList/TaskList";
 
 function App() {
   let tasks = [

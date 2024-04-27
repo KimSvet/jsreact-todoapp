@@ -1,4 +1,5 @@
-import Task from "./Task";
+import Task from "../Task/Task";
+import "./TaskList.css";
 
 export default function TaskList({ tasks }) {
   return (

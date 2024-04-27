@@ -1,3 +1,4 @@
+import "./TasksFilter.css";
 function TasksFilter({ name, selected }) {
   return (
     <li>
