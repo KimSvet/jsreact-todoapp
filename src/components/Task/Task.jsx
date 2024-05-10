@@ -6,7 +6,7 @@ import "./Task.css";
 //   return "lalala";
 // }
 
-function Task({ completed, description, date }) {
+function Task({ id, completed, description, date, onDeleteTask }) {
   const [status, setStatus] = useState(completed);
   function handleCheckboxChange() {
     setStatus(!status);
@@ -28,7 +28,10 @@ function Task({ completed, description, date }) {
           </span>
         </label>
         <button className="icon icon-edit"></button>
-        <button className="icon icon-destroy"></button>
+        <button
+          className="icon icon-destroy"
+          onClick={() => onDeleteTask(id)}
+        ></button>
       </div>
       <input type="text" className="edit" defaultValue="Editing task"></input>
     </li>

@@ -15,11 +15,14 @@ function App() {
     { id: 1, description: "Editing task", completed: false, date: new Date() },
     { id: 2, description: "Active task", completed: false, date: new Date() },
   ]);
+
+  const handleDeleteTask = (taskId) =>
+    setTasks(tasks.filter((task) => task.id !== taskId));
   return (
     <section className="todoapp">
       <Header />
       <main>
-        <TaskList tasks={tasks} />
+        <TaskList tasks={tasks} onDeleteTask={handleDeleteTask} />
         <Footer />
       </main>
     </section>
