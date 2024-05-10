@@ -1,8 +1,12 @@
 import { formatDistanceToNow } from "date-fns";
 import react, { useState } from "react";
 import "./Task.css";
+// function Task(props) {
+//   console.log(props);
+//   return "lalala";
+// }
 
-function Task({ task: { completed, description, date } }) {
+function Task({ completed, description, date }) {
   const [status, setStatus] = useState(completed);
   function handleCheckboxChange() {
     setStatus(!status);
