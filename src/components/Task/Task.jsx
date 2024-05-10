@@ -1,11 +1,21 @@
 import { formatDistanceToNow } from "date-fns";
+import react, { useState } from "react";
 import "./Task.css";
 
-function Task({ task: { status, description, date } }) {
+function Task({ task: { completed, description, date } }) {
+  const [status, setStatus] = useState(completed);
+  function handleCheckboxChange() {
+    setStatus(!status);
+  }
   return (
-    <li className={status}>
+    <li className={status === true ? "completed" : ""}>
       <div className="view">
-        <input className="toggle" type="checkbox" />
+        <input
+          className="toggle"
+          type="checkbox"
+          checked={status === true ? true : false}
+          onChange={handleCheckboxChange}
+        />
         <label>
           <span className="description">{description}</span>
           <br />
