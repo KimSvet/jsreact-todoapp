@@ -18,11 +18,22 @@ function App() {
 
   const handleDeleteTask = (taskId) =>
     setTasks(tasks.filter((task) => task.id !== taskId));
+  function handleDescriptionChange(taskId, newDescription) {
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, description: newDescription } : task
+      )
+    );
+  }
   return (
     <section className="todoapp">
       <Header />
       <main>
-        <TaskList tasks={tasks} onDeleteTask={handleDeleteTask} />
+        <TaskList
+          tasks={tasks}
+          onDeleteTask={handleDeleteTask}
+          onDescriptionChange={handleDescriptionChange}
+        />
         <Footer />
       </main>
     </section>

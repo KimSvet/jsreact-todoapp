@@ -1,11 +1,16 @@
 import Task from "../Task/Task";
 import "./TaskList.css";
 
-export default function TaskList({ tasks, onDeleteTask }) {
+export default function TaskList({ tasks, onDeleteTask, onDescriptionChange }) {
   return (
     <ul className="todo-list">
       {tasks.map((task) => (
-        <Task key={task.id} {...task} onDeleteTask={onDeleteTask} />
+        <Task
+          key={task.id}
+          {...task}
+          onDeleteTask={onDeleteTask}
+          onDescriptionChange={onDescriptionChange}
+        />
       ))}
     </ul>
   );
