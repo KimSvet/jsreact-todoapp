@@ -15,7 +15,18 @@ function App() {
     { id: 1, description: "Editing task", completed: false, date: new Date() },
     { id: 2, description: "Active task", completed: false, date: new Date() },
   ]);
-
+  const handleAddTask = (taskDescription) => {
+    let newId = tasks[tasks.length - 1].id + 1;
+    setTasks([
+      ...tasks,
+      {
+        id: newId,
+        description: taskDescription,
+        completed: false,
+        date: new Date(),
+      },
+    ]);
+  };
   const handleDeleteTask = (taskId) =>
     setTasks(tasks.filter((task) => task.id !== taskId));
   function handleDescriptionChange(taskId, newDescription) {
@@ -27,7 +38,7 @@ function App() {
   }
   return (
     <section className="todoapp">
-      <Header />
+      <Header onAddTask={handleAddTask} />
       <main>
         <TaskList
           tasks={tasks}

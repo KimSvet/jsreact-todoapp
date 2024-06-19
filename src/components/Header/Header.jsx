@@ -1,11 +1,11 @@
 import NewTaskForm from "../NewTaskForm/NewTaskForm";
 import "./Header.css";
 
-function Header() {
+function Header({ onAddTask }) {
   return (
     <header>
       <h1>todos</h1>
-      <NewTaskForm />
+      <NewTaskForm onAddTask={onAddTask} />
     </header>
   );
 }
