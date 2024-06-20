@@ -1,7 +1,12 @@
 import Task from "../Task/Task";
 import "./TaskList.css";
 
-export default function TaskList({ tasks, onDeleteTask, onDescriptionChange }) {
+export default function TaskList({
+  tasks,
+  onDeleteTask,
+  onChangeStatus,
+  onDescriptionChange,
+}) {
   return (
     <ul className="todo-list">
       {tasks.map((task) => (
@@ -9,6 +14,7 @@ export default function TaskList({ tasks, onDeleteTask, onDescriptionChange }) {
           key={task.id}
           {...task}
           onDeleteTask={onDeleteTask}
+          onChangeStatus={onChangeStatus}
           onDescriptionChange={onDescriptionChange}
         />
       ))}

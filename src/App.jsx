@@ -29,6 +29,7 @@ function App() {
       },
     ]);
   };
+
   const filteredTasks = tasks.filter((task) => {
     if (filter === "Active") return !task.completed;
     if (filter === "Completed") return task.completed;
@@ -41,6 +42,16 @@ function App() {
 
   const handleDeleteTask = (taskId) =>
     setTasks(tasks.filter((task) => task.id !== taskId));
+
+  const handleDeleteCompleted = () =>
+    setTasks(tasks.filter((task) => !task.completed));
+
+  const handleChangeStatus = (taskId) =>
+    setTasks(
+      tasks.map((task) =>
+        taskId === task.id ? { ...task, completed: !task.completed } : task
+      )
+    );
 
   function handleDescriptionChange(taskId, newDescription) {
     setTasks(
@@ -56,9 +67,14 @@ function App() {
         <TaskList
           tasks={filteredTasks}
           onDeleteTask={handleDeleteTask}
+          onChangeStatus={handleChangeStatus}
           onDescriptionChange={handleDescriptionChange}
         />
-        <Footer filter={filter} onFilterChange={handleFilterChange} />
+        <Footer
+          filter={filter}
+          onFilterChange={handleFilterChange}
+          onDeleteCompleted={handleDeleteCompleted}
+        />
       </main>
     </section>
   );

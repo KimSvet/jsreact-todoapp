@@ -8,13 +8,11 @@ function Task({
   description,
   date,
   onDeleteTask,
+  onChangeStatus,
   onDescriptionChange,
 }) {
-  const [status, setStatus] = useState(completed);
   const [editing, setEditing] = useState(false);
-  function handleCheckboxChange() {
-    setStatus(!status);
-  }
+
   function handleOpenEdit() {
     setEditing(true);
   }
@@ -24,7 +22,7 @@ function Task({
       setEditing(false);
     }
   }
-  let classes = status === true ? "completed" : "";
+  let classes = completed === true ? "completed" : "";
   if (editing) classes += " editing";
   return (
     <li className={classes}>
@@ -32,8 +30,8 @@ function Task({
         <input
           className="toggle"
           type="checkbox"
-          checked={status === true ? true : false}
-          onChange={handleCheckboxChange}
+          checked={completed === true ? true : false}
+          onChange={() => onChangeStatus(id)}
         />
         <label>
           <span className="description">{description}</span>
