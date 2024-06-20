@@ -15,6 +15,8 @@ function App() {
     { id: 1, description: "Editing task", completed: false, date: new Date() },
     { id: 2, description: "Active task", completed: false, date: new Date() },
   ]);
+  const [filter, setFilter] = useState("All");
+
   const handleAddTask = (taskDescription) => {
     let newId = tasks[tasks.length - 1].id + 1;
     setTasks([
@@ -27,8 +29,19 @@ function App() {
       },
     ]);
   };
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "Active") return !task.completed;
+    if (filter === "Completed") return task.completed;
+    return true;
+  });
+
+  const handleFilterChange = (newFilter) => {
+    setFilter(newFilter);
+  };
+
   const handleDeleteTask = (taskId) =>
     setTasks(tasks.filter((task) => task.id !== taskId));
+
   function handleDescriptionChange(taskId, newDescription) {
     setTasks(
       tasks.map((task) =>
@@ -41,11 +54,11 @@ function App() {
       <Header onAddTask={handleAddTask} />
       <main>
         <TaskList
-          tasks={tasks}
+          tasks={filteredTasks}
           onDeleteTask={handleDeleteTask}
           onDescriptionChange={handleDescriptionChange}
         />
-        <Footer />
+        <Footer filter={filter} onFilterChange={handleFilterChange} />
       </main>
     </section>
   );
