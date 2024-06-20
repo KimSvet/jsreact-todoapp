@@ -1,21 +1,27 @@
 import "./App.css";
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import TaskList from "./components/TaskList/TaskList";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 0,
-      description: "Completed task",
-      completed: true,
-      date: new Date(),
-    },
-    { id: 1, description: "Editing task", completed: false, date: new Date() },
-    { id: 2, description: "Active task", completed: false, date: new Date() },
-  ]);
+  const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("All");
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then((response) => response.json())
+      .then((data) => {
+        const newData = data.map((task) => ({
+          id: task.id,
+          description: task.title,
+          cpmpleted: task.completed,
+          date: new Date(),
+        }));
+        setTasks(newData);
+      })
+      .catch((error) => console.error(error));
+  }, []);
   const taskCounter = tasks.filter((task) => !task.completed).length;
 
   const handleAddTask = (taskDescription) => {
