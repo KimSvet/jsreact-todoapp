@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import TaskList from "./components/TaskList/TaskList";
@@ -16,9 +16,10 @@ function App() {
     { id: 2, description: "Active task", completed: false, date: new Date() },
   ]);
   const [filter, setFilter] = useState("All");
+  const taskCounter = tasks.filter((task) => !task.completed).length;
 
   const handleAddTask = (taskDescription) => {
-    let newId = tasks[tasks.length - 1].id + 1;
+    let newId = tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1;
     setTasks([
       ...tasks,
       {
@@ -74,6 +75,7 @@ function App() {
           filter={filter}
           onFilterChange={handleFilterChange}
           onDeleteCompleted={handleDeleteCompleted}
+          taskCounter={taskCounter}
         />
       </main>
     </section>

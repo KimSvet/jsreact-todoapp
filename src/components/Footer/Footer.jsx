@@ -1,10 +1,12 @@
 import TasksFilter from "../TasksFilter/TasksFilter";
 import "./Footer.css";
 
-function Footer({ filter, onFilterChange, onDeleteCompleted }) {
+function Footer({ filter, onFilterChange, onDeleteCompleted, taskCounter }) {
   return (
     <footer className="footer">
-      <span className="todo-count">1 items left</span>
+      <span className="todo-count">
+        {taskCounter} {taskCounter === 1 ? "item" : "items"} left
+      </span>
       <ul className="filters">
         <TasksFilter
           name="All"
