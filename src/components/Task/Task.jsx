@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { formatDistanceToNow } from "date-fns";
 import react, { useState } from "react";
 import "./Task.css";
@@ -64,6 +65,16 @@ Task.defaultProps = {
   onDeleteTask: () => {},
   onChangeStatus: () => {},
   onDescriptionChange: () => {},
+};
+
+Task.propTypes = {
+  id: PropTypes.number,
+  completed: PropTypes.bool,
+  description: PropTypes.string,
+  date: PropTypes.instanceOf(Date),
+  onDeleteTask: PropTypes.func,
+  onChangeStatus: PropTypes.func,
+  onDescriptionChange: PropTypes.func,
 };
 
 export default Task;

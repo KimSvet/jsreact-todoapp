@@ -1,4 +1,5 @@
 import "./TasksFilter.css";
+import PropTypes from "prop-types";
 function TasksFilter({ name, selected, onClick }) {
   return (
     <li>
@@ -13,5 +14,11 @@ TasksFilter.defaultProps = {
   name: "All",
   selected: false,
   onClick: () => {},
+};
+
+TasksFilter.propTypes = {
+  name: PropTypes.string,
+  selected: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 export default TasksFilter;

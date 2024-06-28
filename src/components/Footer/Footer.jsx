@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import TasksFilter from "../TasksFilter/TasksFilter";
 import "./Footer.css";
 
@@ -37,6 +38,13 @@ Footer.defaultProps = {
   onFilterChange: () => {},
   onDeleteCompleted: () => {},
   taskCounter: 0,
+};
+
+Footer.propTypes = {
+  filter: PropTypes.string,
+  onFilterChange: PropTypes.func,
+  onDeleteCompleted: PropTypes.func,
+  taskCounter: PropTypes.number,
 };
 
 export default Footer;

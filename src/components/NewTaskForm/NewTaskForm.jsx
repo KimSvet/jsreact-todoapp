@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "./NewTaskForm.css";
 import { useState } from "react";
 
@@ -27,4 +28,7 @@ NewTaskForm.defaultProps = {
   onAddTask: () => {},
 };
 
+NewTaskForm.propTypes = {
+  onAddTask: PropTypes.func,
+};
 export default NewTaskForm;
