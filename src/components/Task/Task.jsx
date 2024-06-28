@@ -56,4 +56,14 @@ function Task({
   );
 }
 
+Task.defaultProps = {
+  id: 0,
+  completed: false,
+  description: "",
+  date: new Date(),
+  onDeleteTask: () => {},
+  onChangeStatus: () => {},
+  onDescriptionChange: () => {},
+};
+
 export default Task;

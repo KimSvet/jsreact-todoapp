@@ -9,4 +9,9 @@ function TasksFilter({ name, selected, onClick }) {
   );
 }
 
+TasksFilter.defaultProps = {
+  name: "All",
+  selected: false,
+  onClick: () => {},
+};
 export default TasksFilter;

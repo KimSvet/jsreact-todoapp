@@ -10,4 +10,8 @@ function Header({ onAddTask }) {
   );
 }
 
+Header.defaultProps = {
+  onAddTask: () => {},
+};
+
 export default Header;

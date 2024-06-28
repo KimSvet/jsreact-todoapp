@@ -1,3 +1,4 @@
+import React from "react";
 import Task from "../Task/Task";
 import "./TaskList.css";
 
@@ -21,3 +22,10 @@ export default function TaskList({
     </ul>
   );
 }
+
+TaskList.defaultProps = {
+  tasks: [],
+  onDeleteTask: () => {},
+  onChangeStatus: () => {},
+  onDescriptionChange: () => {},
+};

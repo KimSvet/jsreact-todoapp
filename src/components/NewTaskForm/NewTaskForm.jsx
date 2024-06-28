@@ -23,4 +23,8 @@ function NewTaskForm({ onAddTask }) {
   );
 }
 
+NewTaskForm.defaultProps = {
+  onAddTask: () => {},
+};
+
 export default NewTaskForm;
