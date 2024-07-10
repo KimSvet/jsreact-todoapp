@@ -15,7 +15,7 @@ function App() {
         const newData = data.map((task) => ({
           id: task.id,
           description: task.title,
-          cpmpleted: task.completed,
+          completed: task.completed,
           date: new Date(),
         }));
         setTasks(newData);
